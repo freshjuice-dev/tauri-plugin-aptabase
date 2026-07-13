@@ -1,10 +1,19 @@
 {
-  "name": "@aptabase/tauri",
-  "version": "0.4.2",
+  "name": "@freshjuice/tauri-aptabase",
+  "version": "2.0.0",
   "private": false,
   "type": "module",
-  "description": "Tauri Plugin for Aptabase: Open Source, Privacy-First and Simple Analytics for Mobile, Desktop and Web Apps",
-  "author": "Guilherme Oenning",
+  "description": "Tauri Plugin for Aptabase (Blender Edition): Open Source, Privacy-First and Simple Analytics for Mobile, Desktop and Web Apps",
+  "author": "FreshJuice <hello@freshjuice.dev>",
+  "contributors": [
+    "Guilherme Oenning <me@goenning.net>",
+    "Cristi Pufu <cristian.pufu@uipath.com>",
+    "Nicholas Westerhausen <nwesterhausen@gmail.com>",
+    "nekename <63245705+nekename@users.noreply.github.com>",
+    "pandadev <70103896+0PandaDEV@users.noreply.github.com>",
+    "Álvaro <internetexplorer404xd@gmail.com>",
+    "Alex Zappa <alex@zappa.dev>"
+  ],
   "browser": "webview-dist/index.js",
   "main": "webview-dist/index.js",
   "types": "webview-dist/index.d.ts",
