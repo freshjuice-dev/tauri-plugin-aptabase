@@ -1,4 +1,4 @@
-use rand::Rng;
+use rand::RngExt;
 use serde_json::{json, Value};
 use std::time::{SystemTime, UNIX_EPOCH};
 use std::{
@@ -75,7 +75,7 @@ impl AptabaseClient {
     pub(crate) fn start_polling(&self, interval: Duration) {
         let dispatcher = self.dispatcher.clone();
 
-        tokio::spawn(async move {
+        tauri::async_runtime::spawn(async move {
             loop {
                 tokio::time::sleep(interval).await;
                 dispatcher.flush().await;
