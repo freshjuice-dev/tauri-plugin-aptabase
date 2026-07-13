@@ -14,7 +14,7 @@ fn this_will_panic() {
 pub fn run() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![greet, this_will_panic])
-        .plugin(tauri_plugin_aptabase::Builder::new("A-US-0928558097").with_panic_hook(Box::new(|client, info, msg| {
+        .plugin(freshjuice_tauri_aptabase::Builder::new("A-US-0928558097").with_panic_hook(Box::new(|client, info, msg| {
             let location = info.location().map(|loc| format!("{}:{}:{}", loc.file(), loc.line(), loc.column())).unwrap_or_else(|| "".to_string());
 
             client.track_event("panic", Some(json!({

@@ -12,22 +12,22 @@ Install the Core plugin by adding the following to your `Cargo.toml` file:
 
 ```toml
 [dependencies]
-tauri-plugin-aptabase = "1.0.0"
+freshjuice-tauri-aptabase = "2.0.0"
 ```
 
 ```toml
 [dependencies]
-tauri-plugin-aptabase = { git = "https://github.com/aptabase/tauri-plugin-aptabase" }
+freshjuice-tauri-aptabase = { git = "https://github.com/freshjuice-dev/tauri-plugin-aptabase" }
 ```
 
 You can install the JavaScript Guest bindings using your preferred JavaScript package manager
 
 ```bash
-npm add @aptabase/tauri
+npm add @freshjuice/tauri-aptabase
 ```
 
 ```bash
-npm add https://github.com/aptabase/tauri-plugin-aptabase
+npm add https://github.com/freshjuice-dev/tauri-plugin-aptabase
 ```
 
 ## Usage
@@ -42,7 +42,7 @@ Then register the plugin with Tauri:
 #[tokio::main]
 async fn main() {
     tauri::Builder::default()
-        .plugin(tauri_plugin_aptabase::Builder::new("<YOUR_APP_KEY>").build()) // 👈 this is where you enter your App Key
+        .plugin(freshjuice_tauri_aptabase::Builder::new("<YOUR_APP_KEY>").build()) // 👈 this is where you enter your App Key
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
@@ -50,17 +50,17 @@ async fn main() {
 
 And finally add `aptabase:allow-track-event` to your list Access Control List.
 
-You can then start sending events from Rust by importing the `tauri_plugin_aptabase::EventTracker` trait and calling the `track_event` method on `App`, `AppHandle` or `Window`. 
+You can then start sending events from Rust by importing the `freshjuice_tauri_aptabase::EventTracker` trait and calling the `track_event` method on `App`, `AppHandle` or `Window`. 
 
 As an example, you can add `app_started` and `app_exited` events like this:
 
 ```rust
-use tauri_plugin_aptabase::EventTracker;
+use freshjuice_tauri_aptabase::EventTracker;
 
 #[tokio::main]
 async fn main() {
     tauri::Builder::default()
-        .plugin(tauri_plugin_aptabase::init("<YOUR_APP_KEY>".into()))
+        .plugin(freshjuice_tauri_aptabase::init("<YOUR_APP_KEY>".into()))
         .setup(|app| {
             app.track_event("app_started", None);
             Ok(())
@@ -80,7 +80,7 @@ async fn main() {
 The `trackEvent` function is also available through the JavaScript guest bindings:
 
 ```js
-import { trackEvent } from "@aptabase/tauri";
+import { trackEvent } from "@freshjuice/tauri-aptabase";
 
 trackEvent("save_settings") // An event with no properties
 trackEvent("screen_view", { name: "Settings" }) // An event with a custom property
@@ -102,7 +102,7 @@ in the `src-tauri` directory for the `dotevny_macro` crate to find it properly.
 Add the `use` declaration to where you are building the tauri app (likely `lib.rs` for Tauri v2), and then call it where you would put the key.
 
 ```rust
-use tauri_plugin_aptabase::EventTracker;
+use freshjuice_tauri_aptabase::EventTracker;
 use dotenvy_macro::dotenv;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -111,7 +111,7 @@ use dotenvy_macro::dotenv;
 pub fn run() {
     tauri::Builder::default()
         .build(tauri::generate_context!())
-        .plugin(tauri_plugin_aptabase::Builder::new(dotenv!("APTABASE_KEY")).build())
+        .plugin(freshjuice_tauri_aptabase::Builder::new(dotenv!("APTABASE_KEY")).build())
         .expect("Error when building tauri app")
         .run(|handler, event| match event {
             tauri::RunEvent::Exit { .. } => {

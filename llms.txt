@@ -2,11 +2,11 @@
 
 > Tauri plugin for Aptabase: open-source, privacy-first analytics for desktop and mobile apps built with Tauri v2.
 
-Rust Crate: `tauri-plugin-aptabase`
-Install (Rust): `cargo add tauri-plugin-aptabase`
-npm Package: `@aptabase/tauri`
-Install (JS): `npm add @aptabase/tauri`
-Repo: https://github.com/aptabase/tauri-plugin-aptabase
+Rust Crate: `freshjuice-tauri-aptabase`
+Install (Rust): `cargo add freshjuice-tauri-aptabase`
+npm Package: `@freshjuice/tauri-aptabase`
+Install (JS): `npm add @freshjuice/tauri-aptabase`
+Repo: https://github.com/freshjuice-dev/tauri-plugin-aptabase
 
 ## Overview
 
@@ -24,7 +24,7 @@ Aptabase is an open-source, privacy-first analytics platform. This plugin integr
 This plugin provides **two APIs** — use whichever fits your app architecture:
 
 - **Rust API** — use `EventTracker` trait on `App`, `AppHandle`, or `Window`
-- **JavaScript API** — use `trackEvent()` from `@aptabase/tauri` in your webview frontend
+- **JavaScript API** — use `trackEvent()` from `@freshjuice/tauri-aptabase` in your webview frontend
 
 Both APIs require the Rust plugin to be registered in your Tauri builder. The JS API calls the Rust backend via Tauri's IPC.
 
@@ -36,13 +36,13 @@ In `src-tauri/Cargo.toml`:
 
 ```toml
 [dependencies]
-tauri-plugin-aptabase = "1.0.0"
+freshjuice-tauri-aptabase = "2.0.0"
 ```
 
 ### 2. Add the JS package (optional, for webview tracking)
 
 ```bash
-npm add @aptabase/tauri
+npm add @freshjuice/tauri-aptabase
 ```
 
 ### 3. Register the plugin
@@ -53,7 +53,7 @@ In `src-tauri/src/main.rs` (or `lib.rs`):
 #[tokio::main]
 async fn main() {
     tauri::Builder::default()
-        .plugin(tauri_plugin_aptabase::Builder::new("<YOUR_APP_KEY>").build())
+        .plugin(freshjuice_tauri_aptabase::Builder::new("<YOUR_APP_KEY>").build())
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
@@ -74,7 +74,7 @@ Add `aptabase:allow-track-event` to your Tauri capabilities to allow the JS API 
 Import the `EventTracker` trait and call `track_event` on `App`, `AppHandle`, or `Window`:
 
 ```rust
-use tauri_plugin_aptabase::EventTracker;
+use freshjuice_tauri_aptabase::EventTracker;
 
 // Event with no properties
 app.track_event("app_started", None);
@@ -86,12 +86,12 @@ app.track_event("screen_view", Some(serde_json::json!({ "name": "Settings" })));
 Full example with startup and exit events:
 
 ```rust
-use tauri_plugin_aptabase::EventTracker;
+use freshjuice_tauri_aptabase::EventTracker;
 
 #[tokio::main]
 async fn main() {
     tauri::Builder::default()
-        .plugin(tauri_plugin_aptabase::Builder::new("<YOUR_APP_KEY>").build())
+        .plugin(freshjuice_tauri_aptabase::Builder::new("<YOUR_APP_KEY>").build())
         .setup(|app| {
             app.track_event("app_started", None);
             Ok(())
@@ -111,7 +111,7 @@ async fn main() {
 ## Track Events (JavaScript)
 
 ```js
-import { trackEvent } from "@aptabase/tauri";
+import { trackEvent } from "@freshjuice/tauri-aptabase";
 
 trackEvent("app_started");
 ```
@@ -119,7 +119,7 @@ trackEvent("app_started");
 ## Track Events with Properties (JavaScript)
 
 ```js
-import { trackEvent } from "@aptabase/tauri";
+import { trackEvent } from "@freshjuice/tauri-aptabase";
 
 trackEvent("screen_view", { name: "Settings" });
 trackEvent("purchase", { plan: "pro", price: 9.99 });
@@ -130,7 +130,7 @@ trackEvent("purchase", { plan: "pro", price: 9.99 });
 The `Builder` accepts optional `InitOptions`:
 
 ```rust
-use tauri_plugin_aptabase::{Builder, InitOptions};
+use freshjuice_tauri_aptabase::{Builder, InitOptions};
 use std::time::Duration;
 
 tauri::Builder::default()

@@ -1,6 +1,6 @@
 <script>
   import { invoke } from "@tauri-apps/api/core"
-  import { trackEvent } from '@aptabase/tauri'
+  import { trackEvent } from '@freshjuice/tauri-aptabase'
 
   let name = "";
   let greetMsg = ""

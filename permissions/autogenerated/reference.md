@@ -10,7 +10,7 @@
 <tr>
 <td>
 
-`aptabase:allow-track-event`
+`freshjuice-tauri-aptabase:allow-track-event`
 
 </td>
 <td>
@@ -23,7 +23,7 @@ Enables the track_event command without any pre-configured scope.
 <tr>
 <td>
 
-`aptabase:deny-track-event`
+`freshjuice-tauri-aptabase:deny-track-event`
 
 </td>
 <td>

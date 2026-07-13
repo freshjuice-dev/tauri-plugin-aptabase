@@ -1,5 +1,5 @@
 [package]
-name = "tauri-plugin-aptabase"
+name = "freshjuice-tauri-aptabase"
 version = "2.0.0"
 license = "MIT"
 description = "Tauri Plugin for Aptabase (Blender Edition): Open Source, Privacy-First and Simple Analytics for Mobile, Desktop and Web Apps"
@@ -9,7 +9,7 @@ rust-version = "1.77.2"
 readme = "README.md"
 repository = "https://github.com/freshjuice-dev/tauri-plugin-aptabase"
 exclude = ["/examples", "/webview-dist", "/webview-src", "/node_modules"]
-links = "tauri-plugin-aptabase"
+links = "freshjuice-tauri-aptabase"
 
 [dependencies]
 tauri = "2.11.5"
