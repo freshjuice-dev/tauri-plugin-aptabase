@@ -3,22 +3,25 @@ name = "freshjuice-tauri-aptabase"
 version = "2.0.0"
 license = "MIT"
 description = "Tauri Plugin for Aptabase (Blender Edition): Open Source, Privacy-First and Simple Analytics for Mobile, Desktop and Web Apps"
-authors = ["FreshJuice <hello@freshjuice.dev>"]
+authors = ["FreshJuice <contact@freshjuice.dev>", "Alex Zappa <alex@zoppa.dev>"]
 edition = "2021"
 rust-version = "1.77.2"
 readme = "README.md"
 repository = "https://github.com/freshjuice-dev/tauri-plugin-aptabase"
+homepage = "https://github.com/freshjuice-dev/tauri-plugin-aptabase"
+keywords = ["tauri", "aptabase", "analytics", "privacy", "plugin"]
+categories = ["development-tools", "gui"]
 exclude = ["/examples", "/webview-dist", "/webview-src", "/node_modules"]
 links = "freshjuice-tauri-aptabase"
 
 [dependencies]
 tauri = "2.11.5"
-tokio = "1.52.3"
-futures = "0.3.32"
-serde = "1.0.228"
-serde_json = "1.0.150"
+tokio = "1.53.1"
+futures = "0.3.33"
+serde = "1.0.229"
+serde_json = "1.0.151"
 reqwest = { version = "0.13.4", default-features = false, features = ["json", "native-tls"] }
-time = { version = "0.3.53", features = ["formatting"] }
+time = { version = "0.3.55", features = ["formatting"] }
 os_info = "3.15.0"
 rand = "0.10.2"
 log = "0.4.33"

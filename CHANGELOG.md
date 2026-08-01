@@ -1,3 +1,10 @@
+## 2.0.0 — Blender Edition
+
+* Renamed crate to `freshjuice-tauri-aptabase` and npm package to `@freshjuice/tauri-aptabase`
+* Fork maintained by FreshJuice — upstream is no longer actively maintained
+* All dependencies bumped to latest
+* Published to crates.io and npm under FreshJuice
+
 ## 1.0.0
 
 * Update Tauri v2

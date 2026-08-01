@@ -4,7 +4,7 @@
   "private": false,
   "type": "module",
   "description": "Tauri Plugin for Aptabase (Blender Edition): Open Source, Privacy-First and Simple Analytics for Mobile, Desktop and Web Apps",
-  "author": "FreshJuice <hello@freshjuice.dev>",
+  "author": "FreshJuice <contact@freshjuice.dev>",
   "contributors": [
     "Guilherme Oenning <me@goenning.net>",
     "Cristi Pufu <cristian.pufu@uipath.com>",
@@ -39,10 +39,10 @@
   ],
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.3",
-    "@rollup/plugin-typescript": "^12.3.0",
     "@rollup/plugin-terser": "^1.0.0",
-    "rollup": "^4.62.2",
-    "typescript": "^5.9.3"
+    "@rollup/plugin-typescript": "^12.3.0",
+    "rollup": "^4.62.4",
+    "typescript": "^6.0.3"
   },
   "dependencies": {
     "@tauri-apps/api": "^2.11.1",
