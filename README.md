@@ -2,6 +2,7 @@
 
 # Tauri Plugin for Aptabase — Blender Edition
 
+> ⚠️ PRIVATE REPOSITORY — Proprietary and confidential. See [LICENSE](LICENSE).
 This is a maintained fork of the original `tauri-plugin-aptabase`. The upstream project is no longer actively maintained, so this fork keeps the plugin working with current Tauri 2 and dependency versions. It will continue to receive updates as the ecosystem moves.
 
 This plugin allows you to instrument your app with events that can be analyzed in Aptabase, an Open Source, Privacy-First, and Simple Analytics for Mobile, Desktop and Web Apps.
